@@ -1,0 +1,132 @@
+/* Global Styles */
+body {
+  background-color: #0077b6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
+.container {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 42rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    margin-top: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    margin-top: 6rem;
+  }
+}
+
+/* Title */
+.title {
+  text-align: center;
+  color: white;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  line-height: 1.2;
+}
+
+/* Form Container */
+.form-container {
+  background-color: #647fbc;
+  border-radius: 15px;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .form-container {
+    margin-top: 4rem;
+    padding: 2rem;
+  }
+}
+
+/* Form */
+.shortener-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Input Group */
+.input-group {
+  display: flex;
+  width: 100%;
+  max-width: 32rem;
+  flex-wrap: wrap; 
+}
+
+/* Input */
+.url-input {
+  background-color: white;
+  flex: 1 1 auto;
+  padding: 0.75rem;
+  border-radius: 0.375rem 0 0 0.375rem;
+  border: none;
+  outline: none;
+  min-width: 200px;
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .url-input {
+    border-radius: 0.375rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+}
+
+/* Button */
+.shorten-btn {
+  background-color: #0077b6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 0.375rem 0.375rem 0;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 1rem;
+}
+
+.shorten-btn:hover {
+  background-color: #056193;
+}
+
+@media (max-width: 480px) {
+  .shorten-btn {
+    width: 100%;
+    border-radius: 0.375rem;
+    font-size: 1.1rem;
+  }
+}
+
+.view-links-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #0077b6;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.view-links-btn:hover {
+  background-color: #005f8a;
+}

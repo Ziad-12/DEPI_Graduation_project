@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <link rel="stylesheet" href="./styles/index.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">URL Shortener</h1>
+
+    <div class="form-container">
+      <form method="post" action="/short" class="shortener-form">
+        <div class="input-group">
+          <input type="text" id="url-field" name="url" class="url-input" required>
+          <button type="submit" class="shorten-btn">Shorten</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Link to Routes Page -->
+    <div class="links-page">
+      <a href="/routes" class="view-links-btn">View Shortened Links</a>
+    </div>
+  </div>
+</body>
+</html>

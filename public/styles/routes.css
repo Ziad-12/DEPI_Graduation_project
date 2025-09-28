@@ -1,0 +1,145 @@
+/* Global */
+body {
+  background-color: #0077b6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 64rem;
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 1.5rem;
+  }
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .header {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #2d2d2d;
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+.add-btn {
+  background-color: #0077b6;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+.add-btn:hover {
+  background-color: #005f8a;
+}
+
+@media (min-width: 640px) {
+  .add-btn {
+    width: auto;
+  }
+}
+
+/* Table Wrapper */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Table */
+.link-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #e5e7eb;
+  font-size: 0.85rem;
+  min-width: 500px; /* keeps table readable */
+}
+
+@media (min-width: 640px) {
+  .link-table {
+    font-size: 1rem;
+  }
+}
+
+.link-table th {
+  background-color: #f3f4f6;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.link-table td {
+  padding: 0.5rem 0.75rem;
+  border-top: 1px solid #e5e7eb;
+  word-break: break-word;
+}
+
+.link-table tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Links */
+.link-table td a {
+  color: #0077b6;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.link-table td a:hover {
+  text-decoration: underline;
+}
+
+.link-table td:nth-child(2) a {
+  color: #059669; /* green */
+}
+
+/* Empty State */
+.no-data {
+  text-align: center;
+  color: #6b7280;
+  padding: 1rem;
+  font-size: 0.95rem;
+}
