@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    container_name: depi_app
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - NODE_ENV=production
+      - DB_PATH=/app/data/database.sqlite
+    volumes:
+      - app_data:/app/data
+
+volumes:
+  app_data:
