@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   app:
     build: .
@@ -12,6 +10,17 @@ services:
       - DB_PATH=/app/data/database.sqlite
     volumes:
       - app_data:/app/data
+
+  prometheus:
+    image: prom/prometheus:v2.47.2
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    depends_on:
+      - app
 
 volumes:
   app_data:
