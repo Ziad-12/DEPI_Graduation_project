@@ -13,6 +13,8 @@ USER node
 
 ENV DB_PATH=/app/data/database.sqlite
 ENV NODE_ENV=production
+ENV HOST="localhost"
+ENV PORT=8000
 
 EXPOSE 8000
 
