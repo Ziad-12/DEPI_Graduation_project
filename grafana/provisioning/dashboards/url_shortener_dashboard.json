@@ -54,13 +54,11 @@
         "x": 0,
         "y": 0
       },
-      "id": 2,
+      "id": 4,
       "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
+        "minVizHeight": 75,
+        "minVizWidth": 75,
         "orientation": "auto",
-        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -68,22 +66,22 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
       },
       "pluginVersion": "12.2.1",
       "targets": [
         {
           "editorMode": "builder",
-          "expr": "webservice_urls_shortened_total",
+          "expr": "webservice_failed_lookups_total",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "url shortened count",
-      "type": "stat"
+      "title": "bad request count",
+      "type": "gauge"
     },
     {
       "datasource": {
@@ -213,11 +211,13 @@
         "x": 0,
         "y": 8
       },
-      "id": 4,
+      "id": 2,
       "options": {
-        "minVizHeight": 75,
-        "minVizWidth": 75,
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -225,22 +225,22 @@
           "fields": "",
           "values": false
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "sizing": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
       "pluginVersion": "12.2.1",
       "targets": [
         {
           "editorMode": "builder",
-          "expr": "webservice_failed_lookups_total",
+          "expr": "webservice_urls_shortened_total",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "bad request count",
-      "type": "gauge"
+      "title": "url shortened count",
+      "type": "stat"
     },
     {
       "datasource": {
@@ -334,7 +334,7 @@
           },
           "editorMode": "builder",
           "expr": "rate(webservice_urls_shortened_total[10m])",
-          "legendFormat": "__auto",
+          "legendFormat": "url shortened rate",
           "range": true,
           "refId": "A"
         },
@@ -347,12 +347,107 @@
           "expr": "rate(webservice_redirects_total[10m])",
           "hide": false,
           "instant": false,
-          "legendFormat": "__auto",
+          "legendFormat": "redirection rate",
           "range": true,
           "refId": "B"
         }
       ],
-      "title": "rates display",
+      "title": "url shortened rate and redirection rate over time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "cps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.2.1",
+      "targets": [
+        {
+          "editorMode": "builder",
+          "expr": "webservice_failed_lookups_total",
+          "legendFormat": "graph",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "error 404 rate",
       "type": "timeseries"
     }
   ],
@@ -370,5 +465,5 @@
   "timezone": "browser",
   "title": "New dashboard",
   "uid": "ad24xkm",
-  "version": 6
+  "version": 7
 }
