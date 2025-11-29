@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shortened Links</title>
-  <link rel="stylesheet" href="/styles/routes.css">
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h2 class="title">Shortened Links</h2>
-      <a href="/" class="add-btn">+ Add Link</a>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shortened Links</title>
+    <link rel="stylesheet" href="/styles/routes.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2 class="title">Shortened Links</h2>
+        <a href="/" class="add-btn">+ Add Link</a>
+      </div>
 
-    <div class="table-wrapper">
-      <table class="link-table">
-        <thead>
-          <tr>
-            <th>Source URL</th>
-            <th>Shortened URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% if (links.length > 0) { %>
-            <% links.forEach(link => { %>
-              <tr>
-                <td>
-                  <a href="<%= link.source_url %>" target="_blank">
-                    <%= link.source_url %>
-                  </a>
-                </td>
-                <td>
-                  <a href="http://localhost:8000/short/<%= link.result_url %>" target="_blank">
-                    http://localhost:8000/short/<%= link.result_url %>
-                  </a>
-                </td>
-              </tr>
-            <% }) %>
-          <% } else { %>
+      <div class="table-wrapper">
+        <table class="link-table">
+          <thead>
+            <tr>
+              <th>Source URL</th>
+              <th>Shortened URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (links.length > 0) { %> <% links.forEach(link => { %>
+            <tr>
+              <td>
+                <a href="<%= link.source_url %>" target="_blank">
+                  <%= link.source_url %>
+                </a>
+              </td>
+              <td>
+                <a
+                  href="<%= 'http://' + host + ':' + port + '/short/' + link.result_url %>"
+                  target="_blank"
+                >
+                  <%= 'http://' + host + ':' + port + '/short/' + link.result_url
+                  %>
+                </a>
+              </td>
+            </tr>
+            <% }) %> <% } else { %>
             <tr>
               <td colspan="2" class="no-data">No URLs found</td>
             </tr>
-          <% } %>
-        </tbody>
-      </table>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

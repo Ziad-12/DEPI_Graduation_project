@@ -8,6 +8,8 @@ services:
     environment:
       - NODE_ENV=production
       - DB_PATH=/app/data/database.sqlite
+      - HOST=3.234.21.64
+      - PORT=8000
     volumes:
       - app_data:/app/data
 

@@ -4,11 +4,11 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const db = require("./db");
 const client = require("prom-client"); //change
-
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 8000; // port 8000
+const host = process.env.HOST || "localhost"
 
 
 const register = new client.Registry();
@@ -74,7 +74,7 @@ app.get("/routes", (req, res) => {
       console.error(err);
       return res.status(500).send("Database error");
     }
-    res.render("routes.ejs", { links: rows });
+    res.render("routes.ejs", { links: rows,host:host,port:port });
   });
 });
 
@@ -137,5 +137,5 @@ app.get("/short/:code", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`http://localhost:${port}`);
+  console.log(`http://${host|| "localhost"}:${port}`);
 });
