@@ -45,9 +45,10 @@ Client → URL Shortener → SQLite DBClient
 ### Installation
 
 ```bash
+
 git clone https://github.com/Ziad-12/DEPI_Graduation_project.git
 cd DEPI_Graduation_project
-docker-compose up --build
+docker-compose up
 ```
 
 This will start three containers:
@@ -106,10 +107,23 @@ volumes:
 * Prometheus data persists
 * Grafana dashboards and alert rules persist
 
-
 ## Alerting
 
 Configured in Grafana:
 
 * High request latency alerts
 * Spike in 404 errors alerts
+
+## Environment Variables
+
+This project requires the following environment variables to be set:
+
+
+| Variable   | Description                           | Example                                |
+| ---------- | ------------------------------------- | -------------------------------------- |
+| `NODE_ENV` | The environment the app is running in | `production`                           |
+| `DB_PATH`  | Path to the SQLite database file      | `/app/data/database.sqlite`            |
+| `HOST`     | Host or IP address the app listens on | `3.234.21.64` or localhost if not set |
+| `PORT`     | Port number the app listens on        | `8000`                                 |
+
+You can set these variables in your Docker Compose file, `.env` file, or directly in your shell before running the application.
